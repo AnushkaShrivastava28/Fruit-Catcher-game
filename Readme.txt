@@ -1,109 +1,98 @@
+# 🍎 Fruit Catcher – 2D Arcade Game
 
-# Fruit Catcher – 2D Arcade Game
+**Fruit Catcher** is a lightweight, responsive 2D arcade game built entirely for the web using HTML5, CSS3, JavaScript, and the HTML5 Canvas API. The player controls a basket at the bottom of the screen to catch various falling fruits. The primary objective is to rack up the highest score possible before missing five fruits.
 
-## Project Information
+---
 
-Fruit Catcher is a simple 2D arcade game developed
-using HTML5, CSS3, JavaScript and HTML5 Canvas.
+## 🚀 Live Demo & Preview
+*(Optional: Add a link to your GitHub Pages deployment or a GIF preview here)*
+* **Live Demo:** [Deploy Link Here]
+* ![Game Preview](https://placeholder.com)
 
-The player controls a basket and catches fruits
-falling from the top of the screen.
+---
 
-The objective is to score maximum points without
-missing five fruits.
+## 🛠️ Technologies Used
+* **HTML5** & **HTML5 Canvas API** – For rendering smooth 2D graphics and managing the viewport.
+* **CSS3** – For layout styling and structural presentation.
+* **JavaScript (ES6+)** – For core game loop execution, physics, and event handlers.
+* **Web Audio API** – For dynamically generating synthesizer sound effects without external audio files.
 
-## Technologies Used
+---
 
-- HTML5
-- CSS3
-- JavaScript
-- HTML5 Canvas API
-- Web Audio API
+## ✨ Game Features
+* **Interactive Start Screen:** Displays structured game instructions and a click-to-play prompt.
+* **Responsive Keyboard Controls:** Fluid basket movement calibrated for quick reaction times.
+* **Dynamic Spawn Logic:** Randomly distributed fruit drops tracking varying horizontal lanes.
+* **Special Items:** Occasional golden apple spawns worth **50 bonus points** instead of the normal 10 points.
+* **Progressive Difficulty:** Automated step-up increments that increase fruit falling speeds as your score grows.
+* **Built-in SFX engine:** Custom synthesized audio frequencies triggered on point catches and misses.
+* **State Management:** Complete life-cycle tracking (Start -> Playing -> Game Over -> Restart).
 
-## Game Features
+---
 
-1. Start screen with game instructions.
-2. Basket movement using arrow keys.
-3. Randomly falling fruits.
-4. Normal fruit gives 10 points.
-5. Golden apple gives 50 bonus points.
-6. Missed fruit counter.
-7. Game ends after missing five fruits.
-8. Increasing fruit falling speed.
-9. Catching and missing sound effects.
-10. Restart functionality.
+## 📜 Game Rules & Mechanics
 
-## Game Rules
+### Scoring System
+* 🍓 **Normal Fruits:** 10 Points
+* 🍏 **Golden Apples:** 50 Points
 
-- Catch normal fruits to earn 10 points.
-- Catch golden apples to earn 50 points.
-- Every missed fruit increases the missed counter.
-- The game ends when five fruits are missed.
-- Fruit speed increases as the score increases.
+### Game Over Conditions
+* Each missed fruit that touches the bottom of the screen increments the **Miss Counter**.
+* The match ends immediately upon reaching **5 misses**.
 
-## Keyboard Controls
+### Controls
+* ⬅️ **Left Arrow Key:** Slide the basket left.
+* ➡️ **Right Arrow Key:** Slide the basket right.
 
-- Left Arrow: Move basket left.
-- Right Arrow: Move basket right.
+---
 
-## How to Run
+## 🧠 Architectural Insights
 
-1. Create a folder named Fruit-Catcher.
-2. Create index.html, style.css and script.js.
-3. Copy the respective source code into each file.
-4. Create a README.md file.
-5. Open index.html in Google Chrome or another modern browser.
-6. Click Start Game.
+### 🛠️ The Game Loop & Rendering
+The engine leverages `requestAnimationFrame()` to achieve seamless synchronization with the monitor refresh rate, mitigating screen tearing and micro-stutters.
 
-No additional software installation or external
-libraries are required.
+### 📐 Collision Detection
+Collision logic utilizes the **Axis-Aligned Bounding Box (AABB)** method. The structural dimensions of the falling elements are constantly checked against the positional coordinate frame of the basket:
+```javascript
+if (
+  fruit.x < basket.x + basket.width &&
+  fruit.x + fruit.width > basket.x &&
+  fruit.y < basket.y + basket.height &&
+  fruit.y + fruit.height > basket.y
+) {
+  // Collision detected! Trigger scoring and audio logic.
+}
+```
 
-## Game Algorithm
+### 🎨 Multimedia Implementation
+* **Graphics:** Emojis are drawn directly onto the Canvas grid, serving as performant, vector-scalable sprites.
+* **Audio Layer:** Employs the **Web Audio API** oscillator nodes to cleanly synthesize sound effects in real-time, removing any dependency on external `.mp3` or `.wav` assets.
 
-1. Initialize the canvas and game variables.
-2. Display the start screen.
-3. Start the game when the player clicks Start Game.
-4. Generate fruits at random horizontal positions.
-5. Move fruits downwards.
-6. Move the basket using keyboard controls.
-7. Check collision between fruits and basket.
-8. Increase score when fruits are caught.
-9. Increase missed counter when fruits reach the bottom.
-10. End the game after five missed fruits.
-11. Increase difficulty as the score increases.
-12. Allow the player to restart the game.
+---
 
-## Collision Detection
+## 🏃‍♂️ How to Run Locally
 
-Collision detection is implemented using the
-Axis-Aligned Bounding Box (AABB) method.
+No specialized software, compilation tools, or node modules are required. 
 
-The rectangular boundaries of the fruit and
-basket are compared.
+1. Create a root directory named `Fruit-Catcher`.
+2. Inside the folder, initialize three basic source files and one text document:
+   ```bash
+   ├── index.html
+   ├── style.css
+   ├── script.js
+   └── README.md
+   ```
+3. Copy your source code into their respective files.
+4. Double-click `index.html` or open it using any modern web browser (e.g., Google Chrome, Mozilla Firefox, Microsoft Edge, Safari).
+5. Press **Start Game** and enjoy!
 
-If their boundaries overlap, a collision occurs.
+---
 
-## Golden Apple Customization
+## 📝 Conclusion
+This project serves as a comprehensive reference template demonstrating fundamental concepts of browser-based game development. It highlights structural implementations of object array management, operational game state steps, responsive element boundary checks, and native audio generation.
 
-A golden apple is generated occasionally
-using Math.random().
+---
 
-It is visually distinguished using a golden
-circular background.
+## 📄 License
+This project is open-source and available under the [MIT License](LICENSE).
 
-Catching it awards 50 bonus points instead
-of the normal 10 points.
-
-## Multimedia Features
-
-- Canvas API is used for game graphics.
-- Emoji graphics represent fruits.
-- Web Audio API generates sound effects.
-- requestAnimationFrame() creates smooth animation.
-
-## Conclusion
-
-Fruit Catcher demonstrates the basic concepts
-of 2D game development, animation, collision
-detection, keyboard interaction, scoring,
-random object generation and multimedia effects.
