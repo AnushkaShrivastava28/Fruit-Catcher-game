@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fruit Catcher</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="game-container">
+
+        <header>
+            <h1>🍓 Fruit Catcher 🍎</h1>
+            <p>Catch the fruits and avoid missing them!</p>
+        </header>
+
+        <!-- Scoreboard -->
+        <div class="scoreboard">
+
+            <div class="score-box">
+                <span>Score</span>
+                <strong id="score">0</strong>
+            </div>
+
+            <div class="score-box">
+                <span>Missed</span>
+                <strong id="missed">0 / 5</strong>
+            </div>
+
+            <div class="score-box">
+                <span>Golden Apple</span>
+                <strong>🍎 +50</strong>
+            </div>
+
+        </div>
+
+        <!-- Game Area -->
+        <div class="canvas-container">
+
+            <canvas id="gameCanvas" width="700" height="450">
+                Your browser does not support HTML5 Canvas.
+            </canvas>
+
+            <!-- Start Screen -->
+            <div id="startScreen" class="screen">
+
+                <h2>🍉 Fruit Catcher</h2>
+
+                <p>
+                    Catch falling fruits using your basket.
+                    Don't let five fruits escape!
+                </p>
+
+                <div class="instructions">
+                    <p>⬅️ Left Arrow - Move Left</p>
+                    <p>➡️ Right Arrow - Move Right</p>
+                    <p>🍎 Golden Apple - 50 Bonus Points</p>
+                </div>
+
+                <button id="startButton">Start Game</button>
+
+            </div>
+
+            <!-- Game Over Screen -->
+            <div id="gameOverScreen" class="screen hidden">
+
+                <h2>Game Over!</h2>
+
+                <p>Your Final Score:</p>
+
+                <h1 id="finalScore">0</h1>
+
+                <p>Better luck next time! 🍓</p>
+
+                <button id="restartButton">Restart Game</button>
+
+            </div>
+
+        </div>
+
+        <footer>
+            <p>Multimedia Systems Lab Practical Project</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
